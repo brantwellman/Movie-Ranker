@@ -1,1 +1,9 @@
 <h1>Enter Your Movie Information</h1>
+
+<%= simple_form_for @movie do |f| %>
+	<%= f.input :title %>
+	<%= f.input :rating %>
+	<%= f.input :description %>
+	<br />
+	<%= f.submit 'Create', :class => 'btn btn-primary' %>
+<% end %>
