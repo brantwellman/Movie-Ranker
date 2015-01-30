@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
 
 	def create
 		current_user.movies.create(movie_params)
-		redirect_to root_path
+		redirect_to user_path(current_user)
 	end
 
 
