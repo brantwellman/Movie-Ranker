@@ -1,12 +1,16 @@
 <h1>Welcome to Movie-Ranker!</h1>
 
-<% @movies.each do |movie| %>
-	<div>
-		<h2><%= movie.title %></h2>
-		<h2><%= movie.year %></h2>
-		<h3><%= movie.rating %></h3>
-		<p><%= movie.description %></p>
-	</div>
 
+
+
+<% @movies.each do |movie| %>
+	<div class = "booyah-box col-xs-10 col-xs-offset-1">
+		<h3><%= movie.title %></h3>
+		<h4>Year of release:  <%= movie.year %></h4>
+		<h4>Rating:  <%= movie.rating %>/10</h4>
+		<br />
+		<p>Description:<%= movie.description %></p>
+	</div>
 <% end %>
+
 
