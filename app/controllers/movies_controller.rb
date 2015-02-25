@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
 
 	def index
 		@movies = Movie.all
+		@sorted = @movies.sort { |a,b| b.year <=> a.year }
 	end
 
 	def new
