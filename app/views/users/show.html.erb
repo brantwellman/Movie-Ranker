@@ -1,16 +1,17 @@
-<h1>User Lists</h1>
-<hr>
-
-
+<div class = "col-xs-10 col-xs-offset-1">
+	<h1>My Lists</h1>
+	<hr>
+</div>
+<br />
+<br />
 <% @movie_years.sort.reverse.each do |year, movies| %>
-	<div class = "col-xs-10 col-xs-offset-1">
-		<h2><%= year %></h2>
+	<div class = "col-xs-6 col-xs-offset-3">
+		<h3>My Movies From <%= year %> - 'Re-order List' </h3>
 		<table class = "table table-condensed table-striped table-bordered table-responsive">
 			<thead>
 				<tr>
 					<th>Rank</th>
 					<th>Title</th>
-					<th>Year of Release</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -22,18 +23,19 @@
 						<td>
 							<%= movie.title %>
 						</td>
-						<td>
-							<%= movie.year %>
-						</td>
 					</tr>
 				<% end %>
 			</tbody>
 		</table>
+
+	
+	<br />
+	<br />
+	<br />
 	</div>
-	<br />
-	<br />
-	<br />
 <% end %>
+	
+
 
 
 

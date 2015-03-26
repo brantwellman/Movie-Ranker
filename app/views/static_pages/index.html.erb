@@ -1,0 +1,17 @@
+<h1>Welcome to Movie-Ranker!</h1>
+
+<h2>I will remove the lists of movies</h2>
+
+<h3>In its place the page will show:</h3>
+<h4>The Top Movie From Current Years from every User</h4>
+
+<% @sorted.each do |movie| %>
+	<div class = "booyah-box col-xs-10 col-xs-offset-1">
+		<h3><%= movie.title %></h3>
+		<h4>Year of release:  <%= movie.year %></h4>
+		<br />
+		<% if movie.user.present? %>
+			<h3>User: </h3><h4><%= movie.user.username %></h4>
+		<% end %>
+	</div>
+<% end %>

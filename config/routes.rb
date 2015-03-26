@@ -1,12 +1,13 @@
 MovieRanker::Application.routes.draw do
   devise_for :users
-  root 'movies#index'
+  root 'static_pages#index'
 
   resources :movies
 
-  resources :users
-
-  resources :lists
+  resources :users do
+    resources :lists
+  end 
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
