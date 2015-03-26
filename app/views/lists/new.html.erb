@@ -1,10 +1,10 @@
-<h1>Enter Your Movie Information</h1>
+<h1>Create a List of Movies to Rank</h1>
 
 <div class = "booyah-box col-xs-10 col-xs-offset-1">
-	<%= simple_form_for @movie do |f| %>
-		<%= f.input :title %>
+	<%= simple_form_for @list do |f| %>
+		<h3>Which year would you like to create a list for?</h3>
 		<%= f.input :year %>
 		<br />
 		<%= f.submit 'Create', :class => 'btn btn-primary' %>
 	<% end %>
-</div>
+</div
