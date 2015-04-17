@@ -1,10 +1,13 @@
 MovieRanker::Application.routes.draw do
   devise_for :users
   root 'static_pages#index'
-
+  
   resources :movies
-
-  resources :lists
+  delete 'lists/:list_id/movie/:movie_id', :to => 'movies#destroy', :as => 'movie_destroy'
+  
+  resources :lists do
+    resources :movies
+  end
   
   resources :users
   

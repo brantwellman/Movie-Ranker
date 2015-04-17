@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-	before_action :authenticate_user!, :only => [:new, :create]
+	before_action :authenticate_user!, :only => [:new, :create, :destroy, :edit]
 
 	def index
 		@movies = Movie.all
@@ -8,20 +8,29 @@ class MoviesController < ApplicationController
 
 	def new
 		@movie = Movie.new
+		@list = List.find(params[:id])
 	end
 
 	def create
-		current_user.movies.create(movie_params)
-		redirect_to user_path(current_user)
+		@list = List.find(params[:list_id])
+		@list.movies.create(movie_params.merge(:user => current_user))
+		redirect_to edit_list_path(@list)
 	end
 
-	def show
+	def edit
+	end
+
+	def destroy
+		@list = List.find(params[:list_id])
+		@movie = Movie.find(params[:movie_id])
+		@movie.destroy
+		redirect_to edit_list_path(@list)
 	end
 
 	private
 
 	def movie_params
-		params.require(:movie).permit(:title, :year)
+		params.require(:movie).permit(:title)
 	end
 
 end

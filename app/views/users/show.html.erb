@@ -4,6 +4,16 @@
 </div>
 <br />
 <br />
+
+
+<% @user.lists.each do |list| %>
+	<div class = "booyah-box col-xs-8 col-xs-offset-2">	
+		<h2 class = "pull-left"><%= list.year %></h2>
+		<%= link_to 'Edit List', edit_list_path(list), :class => 'btn btn-primary pull-right btn-lg' %>
+	</div>
+<% end %>
+
+
 <% @movie_years.sort.reverse.each do |year, movies| %>
 	<div class = "col-xs-6 col-xs-offset-3">
 		<h3>My Movies From <%= year %> - 'Re-order List' </h3>
