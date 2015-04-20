@@ -24,14 +24,19 @@ class ListsController < ApplicationController
 		@movie = Movie.new
 	end
 
-	def destroy
+	def update
+		@list = List.find(params[:id])
+		@list.update_attributes(list_params)
+		redirect_to edit_list_path(@list)
+	end
 
+	def destroy
 	end
 
 	private
 
 	def list_params
-		params.require(:list).permit(:year)
+		params.require(:list).permit(:year, :description)
 	end
 
 end

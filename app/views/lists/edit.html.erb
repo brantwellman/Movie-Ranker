@@ -13,7 +13,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @list.movies.reverse.each_with_index do |movie, i| %>
+			<% @list.movies.each_with_index do |movie, i| %>
 				<tr>
 					<td>
 						<%= (i+1) %>
@@ -32,15 +32,21 @@
 		</tbody>
 	</table>
 	<br />
+	<h4><%= @list.year %> List Descripton</h4>
+	<%= @list.description %>
+	<hr>
+	<%= simple_form_for @list do |f| %>
+		<%= f.input :description %>
+		<%= f.submit 'Add / Edit Description', :class => 'btn btn-primary' %>
+	<% end %>
 	<br />
-		<%= simple_form_for @movie, :url => list_movies_path(@list) do |f| %>
-			<%= f.input :title %>
-			<%= f.submit 'Add a Movie', :class => 'btn btn-primary' %>
-			<br />
-			<br />
-			<%=  %>
-			<%= f.submit 'Add a description', :class => 'btn btn-primary' %>
-		<% end %>
+	<br />
+	<%= simple_form_for @movie, :url => list_movies_path(@list) do |f| %>
+		<%= f.input :title %>
+		<%= f.submit 'Add a Movie', :class => 'btn btn-primary' %>
+		<br />
+		<br />
+	<% end %>
 </div>
 
 
